@@ -101,11 +101,11 @@ Some EDA findings of submission qualties include:
 	- r/dadjokes posts have significantly higher scores, or more "likes", while r/eli5 posts have significantly more comments and discussion
 	- much of r/dadjokes posts are written by repeat authors, whereas r/eli5 posts are not: the same ten people contributed 14% of all posts in the corpus, whereas the top ten people contributed only 1.7% of total posts, respectively.
 
-Other EDA findings of word counts from each post: (red outline indicates common words in both subreddits)
+Other EDA findings of word counts from each post: (red outline indicates unique words in both subreddits)
 
-![Alt text](https://git.generalassemb.ly/amytaylor/Binary-Classification-using-Reddit-API-Jokes-vs.-Questions/blob/master/images/stopwords.png)
+![Alt text](https://github.com/amytaylor330/Reddit_Sentiment_Analysis-_Classifying_Jokes_vs_Questions/blob/master/images/stopwords.png)
 ---
-![Alt text](https://git.generalassemb.ly/amytaylor/Binary-Classification-using-Reddit-API-Jokes-vs.-Questions/blob/master/images/no_stopwords.png)
+![Alt text](https://github.com/amytaylor330/Reddit_Sentiment_Analysis-_Classifying_Jokes_vs_Questions/blob/master/images/no_stopwords.png)
 
 
 
@@ -114,7 +114,7 @@ Other EDA findings of word counts from each post: (red outline indicates common 
 
 **i. Baseline Model**
 <br>To determine the best text format that posts should be in for modeling, a preliminary filtering evaluation was performed that compared the accuracy scores with a logistic regression model where filtering methods were iteratively tested (i.e. all filtering methods down to no filtering methods).  The level of pre-processing was determined and a baseline model score using logistic regression was obtained. Results summarized in the following table:
-![Alt text](https://git.generalassemb.ly/amytaylor/Binary-Classification-using-Reddit-API-Jokes-vs.-Questions/blob/master/images/preprocessing.png)
+![Alt text](https://github.com/amytaylor330/Reddit_Sentiment_Analysis-_Classifying_Jokes_vs_Questions/blob/master/images/preprocessing.png)
 
 In order of importance, these results show that: stopwords must be included, removing HTML tags helps, lemmatizing words does not matter (and could be omitted), and removing punctuation/digits has minimal to no effect. 
 Based on these results, the decision was made to use the automatic pre-processing features in CountVectorizer for all models.
@@ -122,7 +122,7 @@ Based on these results, the decision was made to use the automatic pre-processin
 **ii. Model Comparison**
 <br>Using gridsearch pipeline, six classification models were evaluated for accuracy using each models' default parameters as well as with some gridsearch parameter optimization.
 The results are summarized in the following table:
-![Alt text](https://git.generalassemb.ly/amytaylor/Binary-Classification-using-Reddit-API-Jokes-vs.-Questions/blob/master/images/results.png)
+![Alt text](https://github.com/amytaylor330/Reddit_Sentiment_Analysis-_Classifying_Jokes_vs_Questions/blob/master/images/results.png)
 
 While logistic regression performed the best overall, it was not much improved with parameter optimization. All models (except for Ada Boost) suffered from overfitting and could further be optimized with a focus on reducing variance. The second best score was produced by Extra Trees Classifier, which introduces more randomness than Bagging Classifier and Random Forest Classifier, but still managed to produce less bias. 
     
